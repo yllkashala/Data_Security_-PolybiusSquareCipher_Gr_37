@@ -32,3 +32,25 @@ char key;
         }
         cout << endl;
     }
+       if (y == "encrypt") {
+        string plain_text, Cipher = "";
+        int len = 0;
+        cout << "Enter the plain text :  ";
+        cin.ignore();
+        getline(cin, plain_text);
+        len = plain_text.length();
+        //turn the string to uppercase
+        transform(plain_text.begin(), plain_text.end(), plain_text.begin(), ::toupper);
+        for (int n = 0; n < len; n++) {
+            for (int i = 0; i < 6; i++) {
+                for (int j = 0; j < 6; j++) {
+                    if (plain_text[n] == table[i][j]) {
+                        Cipher += table[i][0];
+                        Cipher += table[0][j];
+                    }
+                }
+            }
+        }
+        cout << "Cipher text : " << " " << Cipher;
+        cout << endl;
+    }
