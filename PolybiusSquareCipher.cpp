@@ -54,3 +54,22 @@ char key;
         cout << "Cipher text : " << " " << Cipher;
         cout << endl;
     }
+    if (y == "decrypt") {
+        string cipher_Text, plain = "";
+        cout << "Enter the Cipher text :  ";
+        int size = 0;
+        cin.ignore();
+        getline(cin, cipher_Text);
+        size = cipher_Text.length();
+        for (int n = 0; n < size; n += 2) {
+            for (int i = 0; i < 6; i++) {
+                for (int j = 0; j < 6; j++) {
+                    if (cipher_Text[n] == table[i][0] && cipher_Text[n + 1] == table[0][j]) {
+                        plain += table[i][j];
+                    }
+                }
+            }
+        }
+        cout << "plain text : " << plain;
+    }
+}
